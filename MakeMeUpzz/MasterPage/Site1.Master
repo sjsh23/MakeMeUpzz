@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="MakeMeUpzz.MasterPage.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <h1>MakeMeUpzz</h1>
+
+            <asp:Button ID="HomeButton" EnableViewState="true" runat="server" Text="Home" OnClick="HomeButton_Click"/>
+            <%if (user.UserRole.Equals("admin")){ %>
+            <asp:Button ID="ManageMakeupButton" EnableViewState="true" runat="server" Text="Manage Makeup" OnClick="ManageMakeupButton_Click"/>
+            <asp:Button ID="OrderQbutton" EnableViewState="true" runat="server" Text="Order Queue" OnClick="OrderQbutton_Click"/>
+            <%} %>
+            <asp:Button ID="HistoryButton" EnableViewState="true" runat="server" Text="History" OnClick="HistoryButton_Click"/>
+            <%if (user.UserRole.Equals("customer")){ %>
+            <asp:Button ID="OrderMakeupButton" EnableViewState="true" runat="server" Text="Order Makeup" OnClick="OrderMakeupButton_Click"/>
+            <%} %>
+            <%if (user.UserRole.Equals("admin")){ %>
+            <asp:Button ID="TransactionReport" EnableViewState="true" runat="server" Text="Transaction Report" OnClick="TransactionReport_Click"/>
+            <%} %>
+            <asp:Button ID="ProfileButton" EnableViewState="true" runat="server" Text="Profile" OnClick="ProfileButton_Click"/>
+            <asp:Button ID="logoutButton" EnableViewState="true" runat="server" Text="Logout" OnClick="logoutButton_Click" />
+        </div>
+        <div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</div>
+        
+    </form>
+</body>
+</html>
